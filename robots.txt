@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://logistics.ac.th/sitemap.xml
