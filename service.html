@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บริการ | โรงเรียนโลจิสติกส์ VEF Group</title>
+  <meta name="description" content="หลักสูตรฝึกอบรมด้านโลจิสติกส์ ซัพพลายเชน พิธีการศุลกากร และการค้าระหว่างประเทศจาก VEF Group">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .service-full-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .service-full-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(22,0,109,0.07);
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      transition: var(--transition);
+      align-items: flex-start;
+    }
+    .service-full-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(54,204,205,0.3);
+    }
+    .service-full-icon {
+      width: 72px; height: 72px;
+      background: rgba(22,0,109,0.05);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-full-icon img { width: 44px; height: 44px; object-fit: contain; }
+    .service-full-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .service-full-body p {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .service-tag {
+      display: inline-block;
+      background: rgba(54,204,205,0.12);
+      color: var(--accent-dark);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 0.6rem;
+    }
+
+    .banner-strip {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+    }
+    .banner-strip img { width: 100%; height: 100%; object-fit: cover; }
+    .banner-strip-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(22,0,109,0.6), transparent);
+      display: flex; align-items: center; padding: 0 2.5rem;
+    }
+    .banner-strip-overlay h3 { color: var(--white); font-size: 1.4rem; font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .service-full-grid { grid-template-columns: 1fr; }
+      .service-full-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="slm-navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="Home_files/logo-2-531x534.png" alt="SLM Logo">
+        <div class="brand-name">
+          โรงเรียนโลจิสติกส์
+          <span>VEF Group Co., Ltd.</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">หน้าหลัก</a></li>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="service.html" class="active">บริการ</a></li>
+        <li><a href="contact.html" class="nav-cta">ติดต่อเรา</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="เมนู">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <div class="page-hero">
+    <img src="Service_files/slm-webbanner02-1920x638.png" alt="บริการ VEF Group">
+    <div class="page-hero-overlay">
+      <div>
+        <h1>บริการของเรา</h1>
+        <p>หลักสูตรฝึกอบรมด้านโลจิสติกส์ครบวงจร โดยผู้เชี่ยวชาญมืออาชีพ</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVICE BANNERS ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-tag">ภาพรวม</div>
+        <h2 class="section-title">หลักสูตรเด่นของเรา</h2>
+        <p class="section-desc">ครอบคลุมทุกด้านของโลจิสติกส์สมัยใหม่ เรียนรู้จากผู้เชี่ยวชาญที่มีประสบการณ์จริง</p>
+        <div class="divider"></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem" class="fade-up">
+        <div class="banner-strip">
+          <img src="Service_files/slm-webbanner04-1920x640.png" alt="หลักสูตร 1">
+          <div class="banner-strip-overlay"><h3>โลจิสติกส์และซัพพลายเชน</h3></div>
+        </div>
+        <div class="banner-strip">
+          <img src="Service_files/slm-webbanner05-1920x640.png" alt="หลักสูตร 2">
+          <div class="banner-strip-overlay"><h3>พิธีการศุลกากรและการค้าสากล</h3></div>
+        </div>
+      </div>
+
+      <div class="banner-strip fade-up" style="height:220px">
+        <img src="Service_files/slm-webbanner06-1920x640.png" alt="หลักสูตร 3">
+        <div class="banner-strip-overlay"><h3>การจัดการคลังสินค้าและการกระจายสินค้า</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FULL SERVICES ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-tag">หลักสูตรทั้งหมด</div>
+        <h2 class="section-title">8 หลักสูตรหลักจาก VEF Group</h2>
+        <p class="section-desc">เลือกหลักสูตรที่ตรงกับความต้องการของคุณและองค์กร</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="service-full-grid">
+
+        <div class="service-full-card fade-up">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service01-254x240.png" alt="โลจิสติกส์">
+          </div>
+          <div class="service-full-body">
+            <h3>โลจิสติกส์และซัพพลายเชน</h3>
+            <p>เรียนรู้การวางแผนและบริหารจัดการซัพพลายเชนตั้งแต่ต้นน้ำถึงปลายน้ำ ครอบคลุมทุกกระบวนการในอุตสาหกรรม</p>
+            <span class="service-tag">⏱ 3 วัน | ระดับ: ทุกระดับ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.05s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service02-254x240.png" alt="ศุลกากร">
+          </div>
+          <div class="service-full-body">
+            <h3>พิธีการศุลกากร</h3>
+            <p>ขั้นตอน กฎระเบียบ และเอกสารสำหรับพิธีการศุลกากรนำเข้า-ส่งออก อัปเดตตามกฎหมายล่าสุด</p>
+            <span class="service-tag">⏱ 2 วัน | ระดับ: ทุกระดับ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.10s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service03-254x240.png" alt="คลังสินค้า">
+          </div>
+          <div class="service-full-body">
+            <h3>การจัดการคลังสินค้า</h3>
+            <p>เทคนิคการจัดเก็บ ระบบ WMS การควบคุมสต็อก และการจัดการพื้นที่คลังสินค้าให้มีประสิทธิภาพสูงสุด</p>
+            <span class="service-tag">⏱ 2 วัน | ระดับ: ปฏิบัติการถึงผู้จัดการ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.15s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service04-254x240.png" alt="ขนส่ง">
+          </div>
+          <div class="service-full-body">
+            <h3>การขนส่งและกระจายสินค้า</h3>
+            <p>การวางแผนเส้นทางขนส่ง ระบบ TMS การจัดการต้นทุน และการควบคุมคุณภาพในกระบวนการขนส่ง</p>
+            <span class="service-tag">⏱ 2 วัน | ระดับ: ปฏิบัติการถึงผู้จัดการ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.20s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service05-254x240.png" alt="Import Export">
+          </div>
+          <div class="service-full-body">
+            <h3>นำเข้า–ส่งออก (Import-Export)</h3>
+            <p>ขั้นตอนการนำเข้า-ส่งออก เอกสารการค้าสากล LC, Bill of Lading และสัญญาการค้าระหว่างประเทศ</p>
+            <span class="service-tag">⏱ 3 วัน | ระดับ: ทุกระดับ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.25s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service06-255x240.png" alt="จัดซื้อ">
+          </div>
+          <div class="service-full-body">
+            <h3>การจัดซื้อและจัดหา</h3>
+            <p>กระบวนการจัดซื้ออย่างมีประสิทธิภาพ การเจรจาต่อรอง การประเมินผู้ขาย และการบริหารสัญญาจัดซื้อ</p>
+            <span class="service-tag">⏱ 2 วัน | ระดับ: ผู้จัดการ-ผู้บริหาร</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.30s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service07-255x240.png" alt="ERP">
+          </div>
+          <div class="service-full-body">
+            <h3>ระบบ ERP สำหรับโลจิสติกส์</h3>
+            <p>การใช้งานระบบ ERP ในกระบวนการโลจิสติกส์ การเชื่อมต่อข้อมูล และการวิเคราะห์รายงานเพื่อตัดสินใจ</p>
+            <span class="service-tag">⏱ 3 วัน | ระดับ: ผู้ใช้งาน-ผู้จัดการ</span>
+          </div>
+        </div>
+
+        <div class="service-full-card fade-up" style="transition-delay:0.35s">
+          <div class="service-full-icon">
+            <img src="Home_files/icon-slm-service08-255x240.png" alt="การผลิต">
+          </div>
+          <div class="service-full-body">
+            <h3>การวางแผนและควบคุมการผลิต</h3>
+            <p>MRP, Production Planning, การควบคุมวัตถุดิบ และการเชื่อมโยงระหว่างการผลิตกับซัพพลายเชน</p>
+            <span class="service-tag">⏱ 2 วัน | ระดับ: ผู้จัดการโรงงาน</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="fade-up">สนใจหลักสูตรใดเป็นพิเศษ?</h2>
+      <p class="fade-up">ติดต่อเราเพื่อรับข้อมูลและโปรแกรมอบรมที่เหมาะกับองค์กรของคุณ</p>
+      <a href="contact.html" class="btn-accent fade-up">สอบถามข้อมูล →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Home_files/logo-2-531x534.png" alt="SLM Logo">
+          <p class="footer-desc">โรงเรียนโลจิสติกส์ VEF Group มุ่งมั่นพัฒนาบุคลากรด้านโลจิสติกส์และซัพพลายเชนให้มีทักษะตรงกับความต้องการของตลาดแรงงานสากล</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">เมนูหลัก</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="about.html">เกี่ยวกับเรา</a></li>
+            <li><a href="service.html">บริการของเรา</a></li>
+            <li><a href="contact.html">ติดต่อเรา</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">หลักสูตร</h4>
+          <ul class="footer-links">
+            <li><a href="service.html">โลจิสติกส์และซัพพลายเชน</a></li>
+            <li><a href="service.html">พิธีการศุลกากร</a></li>
+            <li><a href="service.html">การจัดการคลังสินค้า</a></li>
+            <li><a href="service.html">นำเข้า-ส่งออก</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">ติดต่อ</h4>
+          <div class="footer-contact-item"><span class="ico">📍</span><span>75 ถ. ปัญญาอินทรา แขวงบางชัน เขตคลองสามวา กรุงเทพฯ 10510</span></div>
+          <div class="footer-contact-item"><span class="ico">📞</span><span>02-XXX-XXXX</span></div>
+          <div class="footer-contact-item"><span class="ico">✉️</span><span>info@vefgroup.co.th</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 บริษัท วีอีเอฟ กรุ๊ป จำกัด. สงวนลิขสิทธิ์ทุกประการ.</span>
+        <span>โรงเรียนโลจิสติกส์ SLM</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
