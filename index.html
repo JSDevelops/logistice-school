@@ -32,44 +32,43 @@
   </nav>
 
   <!-- ===== HERO SLIDER ===== -->
-  <section class="hero">
+  <section class="hero" id="heroSection">
     <div class="hero-slider" id="heroSlider">
 
-      <div class="hero-slide active">
-        <img src="Home_files/slm-banner02-1920x1080.png" alt="Banner 1">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>ศูนย์ฝึกอบรม<br>โลจิสติกส์มืออาชีพ</h1>
-          <p>พัฒนาบุคลากรด้านโลจิสติกส์ ซัพพลายเชน และการค้าระหว่างประเทศ<br>มากกว่า 20 ปีแห่งความเชี่ยวชาญ</p>
-          <a href="service.html" class="hero-btn">ดูหลักสูตรทั้งหมด</a>
-        </div>
-      </div>
+      <a href="service.html" class="hero-slide active">
+        <img src="Home_files/slm-webbanner02-1920x638.png" alt="School of Logistics and Management">
+      </a>
 
-      <div class="hero-slide">
-        <img src="Home_files/slm-banner03-1914x634.png" alt="Banner 2">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>หลักสูตรพิธีการ<br>ศุลกากรครบวงจร</h1>
-          <p>เรียนรู้กระบวนการนำเข้า-ส่งออก และพิธีการศุลกากร<br>จากผู้เชี่ยวชาญที่มีประสบการณ์จริง</p>
-          <a href="contact.html" class="hero-btn">สมัครเรียนเลย</a>
-        </div>
-      </div>
+      <a href="contact.html" class="hero-slide">
+        <img src="Home_files/slm-banner03-1914x634.png" alt="หลักสูตรพิธีการศุลกากรครบวงจร">
+      </a>
 
-      <div class="hero-slide">
-        <img src="Home_files/slm-banner04-1920x638.png" alt="Banner 3">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>พัฒนาทักษะ<br>ซัพพลายเชนระดับสากล</h1>
-          <p>หลักสูตรมาตรฐานสากล รับรองโดยหน่วยงานชั้นนำ<br>พร้อมใบประกาศนียบัตรรับรองความสามารถ</p>
-          <a href="about.html" class="hero-btn">เรียนรู้เพิ่มเติม</a>
-        </div>
-      </div>
+      <a href="about.html" class="hero-slide">
+        <img src="Home_files/slm-banner04-1920x638.png" alt="พัฒนาทักษะซัพพลายเชนระดับสากล">
+      </a>
+
+      <a href="service.html" class="hero-slide">
+        <img src="Home_files/slm-webbanner05-1920x640.png" alt="หลักสูตรและการอบรมโลจิสติกส์">
+      </a>
 
     </div>
-    <div class="hero-dots" id="heroDots">
-      <button class="hero-dot active" data-index="0"></button>
-      <button class="hero-dot" data-index="1"></button>
-      <button class="hero-dot" data-index="2"></button>
+
+    <!-- Arrow Controls -->
+    <button class="hero-arrow hero-prev" id="heroPrev" aria-label="สไลด์ก่อนหน้า">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="hero-arrow hero-next" id="heroNext" aria-label="สไลด์ถัดไป">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <!-- Indicators -->
+    <div class="hero-dots-container">
+      <div class="hero-dots" id="heroDots">
+        <button class="hero-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" data-index="2" aria-label="Slide 3"></button>
+        <button class="hero-dot" data-index="3" aria-label="Slide 4"></button>
+      </div>
     </div>
   </section>
 
@@ -282,22 +281,77 @@
 
     // Hero Slider
     let currentSlide = 0;
+    let slideTimer = null;
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.hero-dot');
+    const heroSection = document.getElementById('heroSection');
+    const heroPrev = document.getElementById('heroPrev');
+    const heroNext = document.getElementById('heroNext');
 
     function goToSlide(n) {
+      if (!slides.length) return;
       slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
       currentSlide = (n + slides.length) % slides.length;
       slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+    }
+
+    function stopAutoSlide() {
+      if (slideTimer) clearInterval(slideTimer);
+    }
+
+    if (heroPrev) {
+      heroPrev.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+    }
+
+    if (heroNext) {
+      heroNext.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        startAutoSlide();
+      });
     }
 
     dots.forEach(dot => {
-      dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+      dot.addEventListener('click', () => {
+        goToSlide(parseInt(dot.dataset.index));
+        startAutoSlide();
+      });
     });
 
-    setInterval(() => goToSlide(currentSlide + 1), 5000);
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', stopAutoSlide);
+      heroSection.addEventListener('mouseleave', startAutoSlide);
+
+      // Touch swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+          goToSlide(currentSlide + 1); // Swipe left -> next
+          startAutoSlide();
+        } else if (touchEndX - touchStartX > 50) {
+          goToSlide(currentSlide - 1); // Swipe right -> prev
+          startAutoSlide();
+        }
+      }, { passive: true });
+    }
+
+    startAutoSlide();
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
